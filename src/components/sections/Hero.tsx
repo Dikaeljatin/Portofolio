@@ -47,6 +47,8 @@ function ScrambleText({ text, delay = 0 }: { text: string; delay?: number }) {
 function LanyardCard() {
   const cardRef = useRef<HTMLDivElement>(null);
   const rotateRaw = useSpring(0, { stiffness: 100, damping: 20 });
+  const rotateX = useSpring(0, { stiffness: 100, damping: 20 });
+  const rotateY = useSpring(0, { stiffness: 100, damping: 20 });
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -54,12 +56,22 @@ function LanyardCard() {
     if (!card) return;
     const rect = card.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
     const dx = e.clientX - centerX;
+    const dy = e.clientY - centerY;
+    
+    // Original swing
     rotateRaw.set((dx / rect.width) * 25);
+    
+    // 3D Tilt
+    rotateX.set(-(dy / rect.height) * 25);
+    rotateY.set((dx / rect.width) * 25);
   };
 
   const handleMouseLeave = () => {
     rotateRaw.set(0);
+    rotateX.set(0);
+    rotateY.set(0);
     setIsHovered(false);
   };
 
@@ -83,6 +95,7 @@ function LanyardCard() {
         alignItems: "center",
         userSelect: "none",
         cursor: isHovered ? "grab" : "default",
+        perspective: "1000px",
       }}
     >
       {/* ── Looped lanyard strap (V-shape) ── */}
@@ -245,7 +258,7 @@ function LanyardCard() {
           }}
         >
           {/* ── Dark rigid plastic ID card holder ── */}
-          <div style={{
+          <motion.div style={{
             width: "300px",
             background: "linear-gradient(160deg, rgba(26,26,30,0.98) 0%, rgba(14,14,17,1) 100%)",
             border: "1px solid rgba(255,255,255,0.1)",
@@ -259,6 +272,8 @@ function LanyardCard() {
             position: "relative",
             overflow: "hidden",
             marginTop: "-12px", // attach securely to pin
+            rotateX,
+            rotateY,
           }}>
             {/* Plastic gloss sheen */}
             <div style={{
@@ -341,14 +356,16 @@ function LanyardCard() {
                 boxShadow: "0 8px 24px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.05)",
               }}>
                 <Image
-                  src="/profil.jpeg"
+                  src="/profile2.jpg"
                   alt={personalInfo.name}
                   fill
-                  sizes="250px"
+                  sizes="(max-width: 768px) 100vw, 500px"
+                  quality={100}
                   style={{
                     objectFit: "cover",
                     objectPosition: "center top",
                     filter: "contrast(1.02) brightness(0.92)",
+                    transform: "scale(1.15)",
                   }}
                   priority
                 />
@@ -387,7 +404,7 @@ function LanyardCard() {
                 Frontend Developer<br />&amp; UI/UX Designer
               </p>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </motion.div>

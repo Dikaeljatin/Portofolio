@@ -130,6 +130,7 @@ export const projects: Project[] = [
     technologies: ["Next.js", "TypeScript", "Prisma", "Tailwind CSS"],
     githubUrl: "https://github.com/Dikaeljatin/Moneyflow",
     demoUrl: "https://moneyflow-ruddy.vercel.app/",
+    imageUrl: "/logoMF.png",
     featured: true,
     category: "web",
   },

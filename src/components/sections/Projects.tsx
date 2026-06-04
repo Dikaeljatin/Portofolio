@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { SiGithub } from "react-icons/si";
 import { FiExternalLink } from "react-icons/fi";
 import SectionTitle from "@/components/ui/SectionTitle";
@@ -28,8 +29,17 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     >
       {/* Thumbnail area */}
       <div className="relative h-44 bg-[#0e0e0e] overflow-hidden border-b border-white/5">
-        {/* Grid pattern as placeholder */}
-        <div className="absolute inset-0 grid-pattern opacity-50" />
+        {/* Project Image or Grid pattern placeholder */}
+        {project.imageUrl ? (
+          <Image
+            src={project.imageUrl}
+            alt={project.title}
+            fill
+            className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+          />
+        ) : (
+          <div className="absolute inset-0 grid-pattern opacity-50" />
+        )}
 
         {/* Project number */}
         <div className="absolute top-4 left-4">
