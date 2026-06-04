@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { SiGithub } from "react-icons/si";
+import { FiExternalLink } from "react-icons/fi";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { projects } from "@/lib/data";
 import type { Project } from "@/types";
@@ -54,7 +56,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         <motion.div
           animate={{ opacity: hovered ? 1 : 0 }}
           transition={{ duration: 0.3 }}
-          className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center gap-4"
+          className="hidden lg:flex absolute inset-0 bg-black/60 backdrop-blur-sm items-center justify-center gap-4"
         >
           {project.githubUrl && (
             <Link
@@ -106,6 +108,30 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             <span className="font-mono text-xs text-[#333] px-2 py-0.5">
               +{project.technologies.length - 4}
             </span>
+          )}
+        </div>
+
+        {/* Mobile Links */}
+        <div className="flex lg:hidden items-center gap-4 mt-5 pt-4 border-t border-white/5">
+          {project.githubUrl && (
+            <Link
+              href={project.githubUrl}
+              target="_blank"
+              className="flex items-center gap-1.5 font-mono text-xs text-[#888] hover:text-white transition-colors"
+            >
+              <SiGithub size={14} />
+              GitHub
+            </Link>
+          )}
+          {project.demoUrl && (
+            <Link
+              href={project.demoUrl}
+              target="_blank"
+              className="flex items-center gap-1.5 font-mono text-xs text-[#888] hover:text-white transition-colors"
+            >
+              <FiExternalLink size={14} />
+              Live Demo
+            </Link>
           )}
         </div>
       </div>

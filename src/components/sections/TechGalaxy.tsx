@@ -227,8 +227,7 @@ export default function TechGalaxy() {
 
         <div
           ref={containerRef}
-          className="relative w-full border border-white/8 overflow-hidden cursor-crosshair"
-          style={{ height: "600px" }}
+          className="relative w-full border border-white/8 overflow-hidden cursor-crosshair h-[400px] md:h-[600px]"
           onMouseMove={handleMouseMove}
           onMouseLeave={() => {
             pausedPlanetsRef.current = new Set();

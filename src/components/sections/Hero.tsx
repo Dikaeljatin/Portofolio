@@ -423,10 +423,10 @@ export default function Hero() {
         style={{ y, opacity }}
         className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-16"
       >
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-16 min-h-screen py-24" style={{ alignItems: undefined }}>
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-16 min-h-screen py-24 pt-32 lg:pt-24">
 
           {/* ── LEFT ── */}
-          <div className="flex flex-col gap-7 flex-1" style={{ maxWidth: "520px" }}>
+          <div className="flex flex-col gap-7 flex-1 max-w-full lg:max-w-[520px]">
 
             {/* Available badge */}
             <motion.div

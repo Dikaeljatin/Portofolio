@@ -72,7 +72,7 @@ export default function About() {
               </div>
 
               {/* Code block */}
-              <div className="p-8">
+              <div className="p-5 sm:p-8 overflow-x-auto whitespace-nowrap">
                 {codeLines.map((item, i) => (
                   <motion.div
                     key={i}

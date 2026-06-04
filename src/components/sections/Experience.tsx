@@ -20,7 +20,7 @@ function ExperienceItem({ exp, index }: { exp: Experience; index: number }) {
       {/* Header */}
       <button
         onClick={() => setExpanded(!expanded)}
-        className="w-full flex items-start justify-between gap-6 p-6 text-left group"
+        className="w-full flex items-start justify-between gap-4 sm:gap-6 p-4 sm:p-6 text-left group"
       >
         <div className="flex-1">
           <div className="flex flex-wrap items-center gap-3 mb-2">
