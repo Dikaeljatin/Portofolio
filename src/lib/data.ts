@@ -120,6 +120,7 @@ export const projects: Project[] = [
     technologies: ["React", "TypeScript", "Tailwind CSS"],
     githubUrl: "https://github.com/Dikaeljatin/Onecare",
     demoUrl: "https://demo.com",
+    imageUrl: "/logoOC.png",
     featured: true,
     category: "web",
   },

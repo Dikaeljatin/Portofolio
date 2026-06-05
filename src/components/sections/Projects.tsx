@@ -35,7 +35,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             src={project.imageUrl}
             alt={project.title}
             fill
-            className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+            className="object-cover object-center opacity-80 group-hover:opacity-100 transition-opacity duration-500"
           />
         ) : (
           <div className="absolute inset-0 grid-pattern opacity-50" />
