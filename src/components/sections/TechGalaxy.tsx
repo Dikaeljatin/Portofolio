@@ -217,17 +217,9 @@ export default function TechGalaxy() {
   };
 
   return (
-    <section id="tech-galaxy" className="section-padding relative z-10">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <SectionTitle
-          label="Tech Ecosystem"
-          title={`The technologies that\npower my universe`}
-          subtitle="An orbital visualization of the technologies that power my work. Hover over any planet to explore."
-        />
-
         <div
           ref={containerRef}
-          className="relative w-full border border-white/8 overflow-hidden cursor-crosshair h-[400px] md:h-[600px]"
+          className="relative w-full border border-white/8 overflow-hidden cursor-crosshair h-[400px] md:h-[600px] mb-12"
           onMouseMove={handleMouseMove}
           onMouseLeave={() => {
             pausedPlanetsRef.current = new Set();
@@ -303,7 +295,5 @@ export default function TechGalaxy() {
             </span>
           </div>
         </div>
-      </div>
-    </section>
   );
 }

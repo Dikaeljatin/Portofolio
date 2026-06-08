@@ -36,13 +36,6 @@ export default function About() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="mt-8 flex items-center gap-4"
             >
-              <a
-                href="/cv.pdf"
-                download
-                className="font-mono text-xs tracking-widest uppercase border border-white/20 px-6 py-3 text-white hover:bg-white hover:text-black transition-all duration-300"
-              >
-                Download CV
-              </a>
               <span className="flex items-center gap-2 font-mono text-xs text-[#444]">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 Available for work

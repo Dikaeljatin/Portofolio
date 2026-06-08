@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { skills } from "@/lib/data";
 import type { Skill } from "@/types";
+import TechGalaxy from "./TechGalaxy";
 
 import {
   SiTypescript,
@@ -131,6 +132,8 @@ export default function Skills() {
           title={`My Technical\nArsenal.`}
           subtitle="A curated set of technologies I use to build exceptional digital products."
         />
+
+        <TechGalaxy />
 
         {/* Category filter */}
         <div className="flex flex-wrap gap-2 mb-12">
